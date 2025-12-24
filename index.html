@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAPISPA - Soluciones en Electricidad y Automatización Industrial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables de colores y estilos */
+        :root {
+            --primary: #004aad; /* Azul eléctrico */
+            --secondary: #f8b500; /* Amarillo industrial */
+            --dark: #222831;
+            --light: #f5f5f5;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --danger: #dc3545;
+            --success: #28a745;
+        }
+        
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #003a87;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e6a500;
+        }
+        
+        .highlight {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .highlight-secondary {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+        
+        /* Header y Navegación */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+            font-size: 1.5rem;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 180px 0 120px;
+            margin-top: 70px;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        /* Sección Quiénes Somos */
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-text {
+            flex: 1.2;
+        }
+        
+        .about-image {
+            flex: 0.8;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .mission, .vision {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .mission h3, .vision h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Sección Clientes */
+        .clients {
+            background-color: var(--light-gray);
+        }
+        
+        .clients-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        .client-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            align-items: center;
+            justify-items: center;
+        }
+        
+        .client-logo {
+            background-color: white;
+            width: 180px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .client-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .client-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        
+        .client-logo:hover img {
+            filter: grayscale(0%);
+        }
+        
+        /* Sección de Servicios - ICONOS COMPLETOS */
+        .services {
+            background-color: white;
+        }
+        
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            position: relative;
+            padding-top: 50px; /* Espacio para el icono completo */
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            background-color: var(--primary);
+            color: white;
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            margin: -40px auto 25px; /* Ajustado para mostrar completo */
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(0, 74, 173, 0.3);
+        }
+        
+        .service-content {
+            padding: 0 25px 30px;
+        }
+        
+        .service-content h3 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .service-content ul {
+            list-style-type: none;
+        }
+        
+        .service-content li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .service-content li:before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Sección de Equipamiento - REDISEÑADA */
+        .equipment {
+            background-color: white;
+        }
+        
+        .equipment-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        .equipment-intro p {
+            font-size: 1.1rem;
+        }
+        
+        .equipment-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .equipment-card {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 12px;
+            padding: 30px 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 74, 173, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .equipment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 74, 173, 0.15);
+            border-color: var(--primary);
+        }
+        
+        .equipment-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .equipment-card:hover:before {
+            opacity: 1;
+        }
+        
+        .equipment-icon {
+            background: linear-gradient(135deg, var(--primary), #0056cc);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 74, 173, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .equipment-card:hover .equipment-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .equipment-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 1.4rem;
+        }
+        
+        .equipment-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+        
+        .brands-section {
+            background-color: var(--light-gray);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .brands-section h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+        
+        .brand-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .brand-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .brand-logo:hover {
+            transform: translateY(-5px);
+        }
+        
+        .brand-icon {
+            background-color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .brand-name {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        .equipment-commitment {
+            margin-top: 50px;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(0, 74, 173, 0.05), rgba(248, 181, 0, 0.05));
+            border-radius: 12px;
+            border-left: 5px solid var(--secondary);
+        }
+        
+        .equipment-commitment h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .equipment-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* Sección de Contacto */
+        .contact {
+            background-color: var(--light-gray);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            background-color: var(--light-gray);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo .logo-text {
+            color: white;
+        }
+        
+        .footer-logo p {
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+        
+        .footer-links h4,
+        .footer-services h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links ul,
+        .footer-services ul {
+            list-style: none;
+        }
+        
+        .footer-links li,
+        .footer-services li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a,
+        .footer-services a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover,
+        .footer-services a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text, .about-image {
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .service-cards {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+            
+            .equipment-cards {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .brand-logos {
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                margin: 0 0 20px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .service-cards, .equipment-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .client-logos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .brand-logos {
+                gap: 20px;
+            }
+            
+            .brands-section {
+                padding: 30px 20px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .client-logos {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-icon, .equipment-icon {
+                height: 70px;
+                width: 70px;
+                font-size: 1.8rem;
+                margin: -35px auto 20px;
+            }
+            
+            .brand-logos {
+                gap: 15px;
+            }
+            
+            .brand-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="logo-text">DAP<span>ISPA</span></div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#about">Quiénes Somos</a></li>
+                    <li><a href="#clients">Clientes</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#equipment">Equipamiento</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Marcando un Antes y un Después en Automatización Industrial</h1>
+            <p>No solo ofrecemos soporte técnico de calidad, sino un <span class="highlight-secondary">acompañamiento integral</span> con asesoramiento especializado e inducción en sus automatizaciones. Productos y servicios con los más altos estándares del mercado.</p>
+            <div class="hero-btns">
+                <a href="#services" class="btn">Nuestros Servicios</a>
+                <a href="#contact" class="btn btn-secondary">Contáctenos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Quiénes Somos -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Quiénes Somos</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p><span class="highlight">DAPISPA</span> nace de la necesidad de independizarse y del vasto conocimiento del área eléctrica y de automatización industrial. Nuestro fundador, con más de 15 años de experiencia en el sector, tuvo una visión clara: <span class="highlight">marcar un antes y un después</span> en lo que comúnmente se ofrece en el mercado.</p>
+                    
+                    <p>No nos conformamos con ser simplemente proveedores de servicios técnicos. Aspiramos a ser <span class="highlight">el mejor del mercado</span>, diferenciándonos a través de un acompañamiento completo que incluye asesoramiento especializado, inducción en el uso de las automatizaciones implementadas y un soporte post-venta que garantiza el éxito continuo de sus operaciones.</p>
+                    
+                    <p>Creemos firmemente que la excelencia técnica debe ir de la mano con una relación cercana y de confianza con nuestros clientes, entendiendo sus necesidades específicas y ofreciendo soluciones a medida que superen sus expectativas.</p>
+                    
+                    <div class="mission-vision">
+                        <div class="mission">
+                            <h3><i class="fas fa-bullseye"></i> Nuestra Misión</h3>
+                            <p>Proporcionar soluciones integrales en electricidad y automatización industrial que optimicen los procesos productivos de nuestros clientes, ofreciendo no solo productos de calidad sino un acompañamiento técnico permanente que garantice el éxito sostenible de sus operaciones.</p>
+                        </div>
+                        
+                        <div class="vision">
+                            <h3><i class="fas fa-eye"></i> Nuestra Visión</h3>
+                            <p>Ser reconocidos como el referente nacional en soluciones de automatización industrial, destacándonos por nuestra innovación, calidad de servicio y el valor agregado que entregamos a cada proyecto, estableciendo nuevos estándares en el mercado.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Técnico de DAPISPA trabajando con PLC y equipo de automatización">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Clientes -->
+    <section class="clients" id="clients">
+        <div class="container">
+            <h2>Clientes que Confían en Nosotros</h2>
+            
+            <div class="clients-intro">
+                <p>Hemos tenido el privilegio de trabajar con empresas líderes en sus respectivos sectores, brindando soluciones de electricidad y automatización que han optimizado sus procesos productivos. Nuestra experiencia abarca diversos rubros industriales, desde alimentación hasta energía.</p>
+            </div>
+            
+            <div class="client-logos">
+                <div class="client-logo">
+                    <!-- Logo Sonda -->
+                    <div style="font-size: 2.5rem; font-weight: 800; color: #0056a6;">SONDA</div>
+                </div>
+                
+                <div class="client-logo">
+                    <!-- Logo Aquachile -->
+                    <div style="font-size: 1.8rem; font-weight: 800; color: #0077be;">AQUACHILE</div>
+                </div>
+                
+                <div class="client-logo">
+                    <!-- Logo Ariztía -->
+                    <div style="font-size: 2rem; font-weight: 800; color: #d52b1e;">ARI<span style="color: #000;">ZTÍA</span></div>
+                </div>
+                
+                <div class="client-logo">
+                    <!-- Logo Gasco -->
+                    <div style="font-size: 2.2rem; font-weight: 800; color: #da291c;">GASCO</div>
+                </div>
+                
+                <div class="client-logo">
+                    <!-- Logo Empresa Industrial Genérica 1 -->
+                    <div style="font-size: 1.6rem; font-weight: 800; color: #333;">INDUSTRIAS <span style="color: #004aad;">CHILE</span></div>
+                </div>
+                
+                <div class="client-logo">
+                    <!-- Logo Empresa Industrial Genérica 2 -->
+                    <div style="font-size: 1.7rem; font-weight: 800; color: #004aad;">TECNO<span style="color: #f8b500;">LOGÍA</span></div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 40px; font-style: italic;">"La confianza de empresas líderes nos avala. Cada proyecto es una oportunidad para demostrar nuestro compromiso con la excelencia y la innovación."</p>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            
+            <div class="service-cards">
+                <!-- Desarrollo de Proyectos -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Desarrollo de Proyectos</h3>
+                        <p>Buscamos propuestas aptas para dar un buen servicio y económicamente ajustadas a las necesidades del cliente.</p>
+                        <ul>
+                            <li>Proyectos de actualización de maquinaria</li>
+                            <li>Proyectos de automatización de maquinaria industrial</li>
+                            <li>Desarrollo de control de movimiento</li>
+                            <li>Desarrollo de sistemas de seguridad intrínsecas</li>
+                            <li>Cambios, migración y programación de PLC, HMI y variadores de frecuencia</li>
+                            <li>Armado de gabinetes eléctricos de control y fuerza</li>
+                            <li>Diseño de circuitos de control para señales análogas y digitales</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Asistencia Técnica -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Asistencia Técnica</h3>
+                        <p>Servicios de mantención eficaces para un proceso continuo y sin detenciones, minimizando tiempos de interrupción.</p>
+                        <ul>
+                            <li>Servicios de mantención correctiva</li>
+                            <li>Diagnósticos de detección de fallas en maquinarias con lógicas básicas y complejas</li>
+                            <li>Soporte para tecnologías industriales de alto nivel</li>
+                            <li>Servicios de mantenciones preventivos para equipamiento eléctrico industrial</li>
+                            <li>Mantenimiento de gabinetes eléctricos, equipos electrónicos, controladores y actuadores</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Acompañamiento y Asesoramiento -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Acompañamiento Integral</h3>
+                        <p>Lo que nos diferencia: No solo implementamos soluciones, sino que capacitamos y acompañamos a su equipo para un aprovechamiento óptimo.</p>
+                        <ul>
+                            <li>Inducción y capacitación en sistemas automatizados</li>
+                            <li>Asesoramiento técnico especializado continuo</li>
+                            <li>Soporte post-venta y seguimiento de proyectos</li>
+                            <li>Consultoría para optimización de procesos existentes</li>
+                            <li>Desarrollo de documentación técnica y manuales de operación</li>
+                            <li>Planes de mantenimiento predictivo personalizados</li>
+                            <li>Actualizaciones tecnológicas con migración asistida</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Equipamiento - REDISEÑADA -->
+    <section class="equipment" id="equipment">
+        <div class="container">
+            <h2>Equipamiento para Diagnósticos Técnicos</h2>
+            
+            <div class="equipment-intro">
+                <p>Para garantizar diagnósticos confiables y precisos, contamos con instrumentación de última generación y de marcas reconocidas mundialmente. Nuestros técnicos cuentan con la capacitación necesaria para manipular estos equipos con la máxima precisión.</p>
+            </div>
+            
+            <div class="equipment-cards">
+                <div class="equipment-card">
+                    <div class="equipment-icon">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <h3>Osciloscopios Aislados</h3>
+                    <p>Equipos de alta precisión para análisis de señales eléctricas complejas. Modelos de las marcas Tektronix y Fluke con capacidades avanzadas de medición.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Calibradores de Procesos</h3>
+                    <p>Instrumentos Fluke para calibración de sensores, transmisores y controladores en procesos industriales, garantizando mediciones exactas.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Multímetros Digitales</h3>
+                    <p>Multímetros Fluke de alta gama para medición de voltaje, corriente, resistencia, capacitancia y continuidad con máxima seguridad.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Medidores de Corriente</h3>
+                    <p>Pinzas amperimétricas y medidores de corriente Fluke para mediciones sin interrupción del circuito, ideales para diagnóstico en sistemas en operación.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Medidores LCR</h3>
+                    <p>Equipos especializados para medición precisa de inductancia (L), capacitancia (C) y resistencia (R) en componentes electrónicos.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <h3>Analizadores de Redes</h3>
+                    <p>Equipos para diagnóstico de calidad de energía, armónicos y análisis de redes eléctricas industriales.</p>
+                </div>
+            </div>
+            
+            <div class="brands-section">
+                <h3>Marcas de Prestigio que Nos Respaldan</h3>
+                <div class="brand-logos">
+                    <div class="brand-logo">
+                        <div class="brand-icon" style="background-color: #004aad; color: white;">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="brand-name">Fluke</div>
+                    </div>
+                    
+                    <div class="brand-logo">
+                        <div class="brand-icon" style="background-color: #e6e6e6; color: #d52b1e;">
+                            <i class="fas fa-wave-square"></i>
+                        </div>
+                        <div class="brand-name">Tektronix</div>
+                    </div>
+                    
+                    <div class="brand-logo">
+                        <div class="brand-icon" style="background-color: #0056a6; color: white;">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="brand-name">Keysight</div>
+                    </div>
+                    
+                    <div class="brand-logo">
+                        <div class="brand-icon" style="background-color: #f8b500; color: #222831;">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="brand-name">Siemens</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="equipment-commitment">
+                <h3>Nuestro Compromiso con la Precisión</h3>
+                <p>Cada diagnóstico realizado por DAPISPA incluye un informe técnico detallado con análisis de datos, recomendaciones específicas y un plan de acción claro. Nuestros equipos son calibrados regularmente para garantizar mediciones exactas y resultados confiables que respaldan nuestras soluciones.</p>
+            </div>
+            
+            <div class="equipment-cta">
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-clipboard-check"></i> Solicitar Diagnóstico Especializado
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contáctenos</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>¿Necesita asesoría especializada?</h3>
+                    <p>Nuestro equipo de expertos está listo para ayudarle con sus proyectos de electricidad y automatización industrial. Contáctenos para una evaluación sin costo.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>Av. Industrial 1234, Zona Industrial, Santiago, Chile</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+56 2 2345 6789</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contacto@dapispa.cl</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Horario de Atención</h4>
+                            <p>Lunes a Viernes: 8:00 - 18:00 hrs<br>Sábados: 9:00 - 13:00 hrs (solo emergencias)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="tel" placeholder="Teléfono">
+                        <input type="text" placeholder="Empresa">
+                        <input type="text" placeholder="Asunto" required>
+                        <textarea placeholder="Describa su requerimiento o proyecto" required></textarea>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" class="logo">
+                        <div class="logo-text">DAP<span>ISPA</span></div>
+                    </a>
+                    <p>Marcando un antes y un después en automatización industrial. Soluciones integrales con acompañamiento técnico permanente.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#about">Quiénes Somos</a></li>
+                        <li><a href="#clients">Clientes</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                        <li><a href="#equipment">Equipamiento</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h4>Nuestros Servicios</h4>
+                    <ul>
+                        <li><a href="#services">Desarrollo de Proyectos</a></li>
+                        <li><a href="#services">Asistencia Técnica</a></li>
+                        <li><a href="#services">Acompañamiento Integral</a></li>
+                        <li><a href="#equipment">Diagnósticos Técnicos</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 DAPISPA. Todos los derechos reservados. | Diseñado para marcar la diferencia en automatización industrial</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu móvil
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Formulario de contacto
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por su mensaje. Nos pondremos en contacto con usted en breve para ofrecerle una solución a medida.');
+            contactForm.reset();
+        });
+        
+        // Scroll suave para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animación para tarjetas de equipamiento
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100); // Retraso escalonado
+                }
+            });
+        }, observerOptions);
+        
+        // Aplicar animación a tarjetas de equipamiento
+        document.querySelectorAll('.equipment-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+        
+        // Aplicar animación a logos de marcas
+        document.querySelectorAll('.brand-logo').forEach(logo => {
+            logo.style.opacity = '0';
+            logo.style.transform = 'translateY(15px)';
+            logo.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(logo);
+        });
+        
+        // Aplicar animación a tarjetas de clientes
+        document.querySelectorAll('.client-logo').forEach(logo => {
+            logo.style.opacity = '0';
+            logo.style.transform = 'translateY(20px)';
+            logo.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(logo);
+        });
+        
+        // Aplicar animación a tarjetas de servicios
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

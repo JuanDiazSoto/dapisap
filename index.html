@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DAPISPA - Soluciones en Electricidad y Automatización Industrial</title>
-   <link rel="shortcut icon" href="https://www.dapispa.cl/favicon.ico"> 
+    <link rel="shortcut icon" href="https://www.dapispa.cl/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Variables de colores y estilos */
@@ -153,14 +153,16 @@
             display: flex;
             align-items: center;
             text-decoration: none;
+            max-width: 100%;
+            height: auto;
         }
 
         .logo-icon {
             background-color: var(--primary);
             color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            
             display: flex;
             justify-content: center;
             align-items: center;
@@ -844,7 +846,7 @@
         <div class="container header-container">
             <a href="#" class="logo">
                 <div class="logo-icon">
-                   <img src="images/dapispa.png" class="logo" ="Logo">
+                    <img src="images/dapispa.png" class="logo"="Logo">
                 </div>
                 <div class="logo-text_h">Diseño de Automatización <br> de Procesos Industriales SpA.</div>
             </a>
@@ -1211,9 +1213,9 @@
 
                         <input id="idName" type="text" name="nombre" placeholder="Nombre completo" required>
                         <input type="email" name="correo" placeholder="Correo electrónico" required>
-                        <input type="tel"   name="telefono" placeholder="Teléfono">
-                        <input type="text"  name="empresa" placeholder="Empresa">
-                        <input type="text"  name="asunto" placeholder="Asunto" required>
+                        <input type="tel" name="telefono" placeholder="Teléfono">
+                        <input type="text" name="empresa" placeholder="Empresa">
+                        <input type="text" name="asunto" placeholder="Asunto" required>
 
                         <textarea name="mensaje" placeholder="Describa su requerimiento o proyecto"></textarea>
 
@@ -1223,33 +1225,33 @@
 
 
                     <script>
-document.getElementById("contactForm").onsubmit = function(e){
+                        document.getElementById("contactForm").onsubmit = function (e) {
 
-e.preventDefault()
+                            e.preventDefault()
 
-let nombre = this.elements["nombre"].value
-let correo = this.elements["correo"].value
-let telefono = this.elements["telefono"].value
-let empresa = this.elements["empresa"].value
-let asunto = this.elements["asunto"].value
-let mensaje = this.elements["mensaje"].value
+                            let nombre = this.elements["nombre"].value
+                            let correo = this.elements["correo"].value
+                            let telefono = this.elements["telefono"].value
+                            let empresa = this.elements["empresa"].value
+                            let asunto = this.elements["asunto"].value
+                            let mensaje = this.elements["mensaje"].value
 
-let texto =
-"Nuevo contacto desde la web\n\n"+
-"Nombre: "+nombre+"\n"+
-"Correo: "+correo+"\n"+
-"Teléfono: "+telefono+"\n"+
-"Empresa: "+empresa+"\n"+
-"Asunto: "+asunto+"\n\n"+
-"Mensaje:\n"+mensaje
+                            let texto =
+                                "Nuevo contacto desde la web\n\n" +
+                                "Nombre: " + nombre + "\n" +
+                                "Correo: " + correo + "\n" +
+                                "Teléfono: " + telefono + "\n" +
+                                "Empresa: " + empresa + "\n" +
+                                "Asunto: " + asunto + "\n\n" +
+                                "Mensaje:\n" + mensaje
 
-let numero = "56944228080"
+                            let numero = "56944228080"
 
-let url = "https://wa.me/"+numero+"?text="+encodeURIComponent(texto)
+                            let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(texto)
 
-window.open(url,"_blank")
+                            window.open(url, "_blank")
 
-}
+                        }
 
                     </script>
                 </div>
